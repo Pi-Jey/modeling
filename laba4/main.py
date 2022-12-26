@@ -1,7 +1,7 @@
 import time
 from element import Element
 from model import Model
-import model_builders
+import model_constructor
 import matplotlib.pyplot as plt
 
 
@@ -37,21 +37,21 @@ def analyze(func):
     plt.title("Analytic estimation")
     plt.xlabel("Model complexity")
     plt.ylabel("Time")
-    plt.plot(elems_to_test, analytic_time, color="green")
+    plt.plot(elems_to_test, analytic_time, color="blue")
     plt.show()
 
     plt.title("Theoretical estimation")
     plt.xlabel("Model complexity")
     plt.ylabel("Operations")
-    plt.plot(elems_to_test, theoretical_operation_count, color="green")
+    plt.plot(elems_to_test, theoretical_operation_count, color="blue")
     plt.show()
 
 
 def main():
     print("Starting to analyze simple model")
-    analyze(model_builders.build_simple_model)
+    analyze(model_constructor.build_simple_model)
     input("Finished simple model. Press enter to analyze complex model")
-    analyze(model_builders.build_complex_model)
+    analyze(model_constructor.build_complex_model)
     print("Finished complex model.")
 
 
